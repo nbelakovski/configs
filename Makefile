@@ -5,4 +5,7 @@ install:
 	cp robbyrussell.zsh-theme $(HOME)/.oh-my-zsh/themes/
 	cp .tmux.conf $(HOME)/
 	echo "Installing tmux plugin manager"
-	git clone https://github.com/tmux-plugins/tpm $(HOME)/.tmux/plugins/tpm
+	# Either it exists or we install it
+	[ -e $(HOME)/.tmux/plugins/tpm ] || git clone https://github.com/tmux-plugins/tpm $(HOME)/.tmux/plugins/tpm
+	echo "Done"
+

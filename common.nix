@@ -15,7 +15,6 @@
   programs.tmux = {
     enable = true;
     sensibleOnTop = false;
-    terminal = "xterm-256color"; # Not sure if this is necessary
     baseIndex = 1;
     prefix = "C-s";
     mouse = true;

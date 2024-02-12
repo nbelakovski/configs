@@ -21,7 +21,6 @@
   home.packages = [
     # # Adds the 'hello' command to your environment. It prints a friendly
     # # "Hello, world!" when run.
-    pkgs.fd
     pkgs.vim-darwin
 
     # # It is sometimes useful to fine-tune packages, for example, by applying
@@ -70,6 +69,17 @@
   #
   home.sessionVariables = {
     # EDITOR = "emacs";
+  };
+
+  programs.tmux = {
+    plugins = with pkgs; [
+      {
+        plugin = tmuxPlugins.dracula;
+        extraConfig = ''
+              set -g @dracula-plugins "git battery ram-usage spotify-tui weather time network-ping"
+              '';
+      }
+    ];
   };
 
   # Let Home Manager install and manage itself.

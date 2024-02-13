@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ config, pkgs, ... }:
 
 {
   home.packages = [
@@ -10,6 +10,10 @@
     pkgs.wget
     pkgs.nmap
     pkgs.unrar
+    # vim-full appears to work fine on Darwin, but it appears that
+    # vim-darwin is compiled with some sort of special support for Darwin so
+    # let's use that.
+    (if pkgs.stdenv.isDarwin then pkgs.vim-darwin else pkgs.vim-full)
   ];
 
   programs.tmux = {
@@ -18,7 +22,8 @@
     baseIndex = 1;
     prefix = "C-s";
     mouse = true;
-    escapeTime = 0;
+    terminal = "xterm-256color";  # vim colorschemes are a little weird with 'screen'
+    escapeTime = 0;  # prevents delay between insert and command mode in vim
     plugins = with pkgs; [
       {
         plugin = tmuxPlugins.dracula;
@@ -57,5 +62,8 @@
         # Increase default display time for messages
         set -g display-time 1500
       '';
+  };
+  home.file = {
+    ".vimrc".source = config.lib.file.mkOutOfStoreSymlink ./.vimrc;
   };
 }

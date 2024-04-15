@@ -1,5 +1,8 @@
 { config, pkgs, ... }:
 
+let
+  unstable = import <nixpkgs-unstable> {};
+in
 {
   home.packages = [
     pkgs.fd
@@ -10,11 +13,17 @@
     pkgs.wget
     pkgs.nmap
     pkgs.unrar
+    pkgs.watch
     # vim-full appears to work fine on Darwin, but it appears that
     # vim-darwin is compiled with some sort of special support for Darwin so
     # let's use that.
     (if pkgs.stdenv.isDarwin then pkgs.vim-darwin else pkgs.vim-full)
   ];
+
+  programs.atuin = {
+    enable = true;
+    package = unstable.atuin;
+  };
 
   programs.tmux = {
     enable = true;
@@ -30,7 +39,6 @@
         extraConfig = ''
             set -g @dracula-plugins "git battery ram-usage spotify-tui weather time network-ping"
 
-            set -g @dracula-fixed-location "Culver City, CA"
             set -g @dracula-battery-label "🔋"
             set -g @dracula-show-empty-plugins false
             set -g @dracula-ram-usage-label "🐏"

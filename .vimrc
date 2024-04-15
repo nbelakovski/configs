@@ -17,8 +17,8 @@ call plug#begin()
 Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'sheerun/vim-polyglot'
 Plug 'tpope/vim-commentary'
-Plug 'airblade/vim-gitgutter'
-Plug 'nbelakovski/vim-gittabs'
+# Plug 'airblade/vim-gitgutter'
+# Plug 'nbelakovski/vim-gittabs'
 #Plug 'itchyny/lightline.vim'
 #Plug 'vimpostor/vim-tpipeline'
 if has('nvim')

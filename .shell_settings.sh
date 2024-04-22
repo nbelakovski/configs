@@ -32,7 +32,7 @@ case $SHELL in
     # Put other completions in ~/.local/share/bash-completion/completions
     # They should be named cmd.bash
     [[ -f ~/.nix-profile/share/bash-completion/bash_completion ]] && . ~/.nix-profile/share/bash-completion/bash_completion
-    source /nix/store//4xqc1kyw2lb9a3xrkq510s3hvvyr54r0-bash-preexec-0.5.0/share/bash/bash-preexec.sh
+    source ~/.nix-profile/share/bash/bash-preexec.sh
     # source "$(blesh-share)"/ble.sh --attach=none # does not work currently
     # [[ ${BLE_VERSION-} ]] && ble-attach
 

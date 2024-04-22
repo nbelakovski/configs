@@ -73,5 +73,6 @@ in
   };
   home.file = {
     ".vimrc".source = config.lib.file.mkOutOfStoreSymlink ./.vimrc;
+    ".shell_settings.sh".source = config.lib.file.mkOutOfStoreSymlink ./.shell_settings.sh;
   };
 }

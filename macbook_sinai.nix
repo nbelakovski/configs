@@ -76,7 +76,7 @@
       {
         plugin = tmuxPlugins.dracula;
         extraConfig = ''
-              set -g @dracula-plugins "git battery ram-usage spotify-tui weather time network-ping"
+              set -g @dracula-plugins "git battery ram-usage spotify-tui weather time"
               '';
       }
     ];

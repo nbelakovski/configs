@@ -1,7 +1,7 @@
 { config, pkgs, ... }:
 
 let
-  unstable = import <nixpkgs-unstable> {};
+  unstablePkgs = import <nixpkgs-unstable> {};
 in
 {
   home.packages = [
@@ -14,6 +14,10 @@ in
     pkgs.nmap
     pkgs.unrar
     pkgs.watch
+    pkgs.bash-completion
+    pkgs.bashInteractive
+    pkgs.bash-preexec  # I think this one is necessary for atuin?
+    pkgs.nix-bash-completions
     # vim-full appears to work fine on Darwin, but it appears that
     # vim-darwin is compiled with some sort of special support for Darwin so
     # let's use that.
@@ -22,7 +26,19 @@ in
 
   programs.atuin = {
     enable = true;
-    package = unstable.atuin;
+    package = unstablePkgs.atuin;
+  };
+
+  programs.git = {
+    enable = true;
+    package = pkgs.gitFull;
+    aliases = {
+      br = "branch";
+      ci = "commit";
+      co = "checkout";
+      st = "status";
+      wt = "worktree";
+    };
   };
 
   programs.tmux = {

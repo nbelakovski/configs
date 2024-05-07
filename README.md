@@ -9,3 +9,4 @@ To install:
 - home-manager switch
 - On Mac: edit /etc/shells to add the nix bash shell at ~/.nix-profile/bin/bash as one of the allowable ones and then run chsh -s ~/.nix-profile/bin.bash
 - For some reason I had to manually install vimplug and then run :PlugInstall to get vim to work
+- cp .profile into ~. I choose to do this step manually since other programs might alter .profile so I don't want to make it read only.

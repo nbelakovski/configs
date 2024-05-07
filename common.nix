@@ -4,6 +4,11 @@ let
   unstablePkgs = import <nixpkgs-unstable> {};
 in
 {
+  nixpkgs = {
+    config = {
+      allowUnfree = true;
+    };
+  };
   home.packages = [
     pkgs.fd
     pkgs.eza
@@ -32,12 +37,16 @@ in
   programs.git = {
     enable = true;
     package = pkgs.gitFull;
+    userName = "Nickolai Belakovski";
     aliases = {
       br = "branch";
       ci = "commit";
       co = "checkout";
       st = "status";
       wt = "worktree";
+    };
+    extraConfig = {
+      push = { default = "current"; };
     };
   };
 

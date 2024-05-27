@@ -5,6 +5,7 @@ robbyrussell is my customization to the default oh-my-zsh theme
 To install:
 - [Install nix](https://nixos.org/download/)
 - [Install nix home manager](https://nix-community.github.io/home-manager/index.xhtml#sec-install-standalone)
+- Create an appropriate home.nix file by copying one of the existing ones and appropriately modifying the username, user folder, and git email
 - `rm ~/.config/home-manager/home.nix`
 - symlink ~/.config/home-manager/home.nix to the relevant nix file in here, i.e. `ln -s $(pwd)/macbook.nix ~/.config/home-manager/home.nix
 - The following script should essentially work and also it should be mostly idempotent (except for adding multiple entries to /etc/shells)
@@ -23,3 +24,8 @@ vim +'PlugInstall --sync' +qa
 # Copy this directory's .profile into home. I wouldn't want to make profile read only since sometimes other programs modify it
 cp .profile ~/
 ```
+
+For macOS iterm these are the instructions to make option+left or option+right to move a word
+iterm->settings->profiles->keys->key mappings -> remove the things associated with option+left/right
+iterm->settings->keys->key bindings -> add two key bindings to send escape sequences. left should send b, right sends f
+

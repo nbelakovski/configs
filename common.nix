@@ -54,7 +54,6 @@ in
     enable = true;
     sensibleOnTop = false;
     baseIndex = 1;
-    prefix = "C-s";
     mouse = true;
     terminal = "xterm-256color";  # vim colorschemes are a little weird with 'screen'
     escapeTime = 0;  # prevents delay between insert and command mode in vim

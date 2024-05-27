@@ -29,3 +29,17 @@ For macOS iterm these are the instructions to make option+left or option+right t
 iterm->settings->profiles->keys->key mappings -> remove the things associated with option+left/right
 iterm->settings->keys->key bindings -> add two key bindings to send escape sequences. left should send b, right sends f
 
+Also for VSCode you'll want to add this to "Keyboard Shortcuts JSON" to have normal ctrl+tab behavior
+```
+{
+    "key": "ctrl+tab",
+    "command": "workbench.action.nextEditor"
+},
+{
+    "key": "ctrl+shift+tab",
+    "command": "workbench.action.previousEditor"
+}
+```
+
+And also for VSCode you'll want to swtich the default terminal to bash. It may require a computer restart for VSCode to pick up the new path that lets it find the correct bash
+

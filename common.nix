@@ -48,6 +48,7 @@ in
     };
     extraConfig = {
       push = { default = "current"; };
+      protocol = { file = { allow = "always"; }; };
     };
   };
 

@@ -44,6 +44,7 @@ in
       co = "checkout";
       st = "status";
       wt = "worktree";
+      sw = "switch";
     };
     extraConfig = {
       push = { default = "current"; };
@@ -52,8 +53,8 @@ in
 
   programs.tmux = {
     enable = true;
-    sensibleOnTop = false;
-    baseIndex = 1;
+    keyMode = "vi";
+    baseIndex = 1;  # start windows at 1 and not 0, so <leader>1 goes to first window
     mouse = true;
     terminal = "xterm-256color";  # vim colorschemes are a little weird with 'screen'
     escapeTime = 0;  # prevents delay between insert and command mode in vim

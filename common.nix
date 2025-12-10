@@ -19,6 +19,7 @@ in
     pkgs.nmap
     pkgs.unrar
     pkgs.watch
+    pkgs.delta
     pkgs.bash-completion
     pkgs.bashInteractive
     pkgs.bash-preexec  # I think this one is necessary for atuin?
@@ -49,16 +50,21 @@ in
     extraConfig = {
       push = { default = "current"; };
       protocol = { file = { allow = "always"; }; };
+      core = { pager = "delta"; };
+      interactive = { diffFilter = "delta --color-only"; };
+      delta = { navigate = "true"; dark = "true"; diff-so-fancy = "true"; };
+      merge = { conflictStyle = "zdiff3"; };
     };
   };
 
   programs.tmux = {
     enable = true;
+    package = pkgs.tmux;
     keyMode = "vi";
     baseIndex = 1;  # start windows at 1 and not 0, so <leader>1 goes to first window
     mouse = true;
     terminal = "xterm-256color";  # vim colorschemes are a little weird with 'screen'
-    escapeTime = 0;  # prevents delay between insert and command mode in vim
+    escapeTime = 50;  # prevents delay between insert and command mode in vim (but must be nonzero to avoid 10;rgb;cccc/cccc
     plugins = with pkgs; [
       {
         plugin = tmuxPlugins.dracula;

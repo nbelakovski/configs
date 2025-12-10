@@ -2,13 +2,18 @@ vim9script
 # ^  Allow ourselves to use # for comments instead of "
 runtime defaults.vim  # Maintain the default behavior of remembering cursor position
 
+# Apparently this is what I need to remember cursor position?
+#au BufReadPost *
+#    \ if line("'\"") > 0 && line("'\"") <= line("$") && &filetype != "gitcommit" |
+#        \ execute("normal `\"") |
+#    \ endif
+
 set mouse=a  # for mouse mode in split window
 set number  # show line numbers
 
 # wildmenu provides a pleasant autocomplete for vim commands
 set wildmenu
 set wildmode=longest:full,full
-
 
 set nocompatible # required by polyglot ?
 
@@ -28,6 +33,8 @@ Plug 'mfussenegger/nvim-dap-python'
 endif
 call plug#end() 
 
+# https://github.com/microsoft/vscode/issues/249144#issuecomment-2893214779
+autocmd VimEnter * set background=dark
 
 # Ignore case in command line mode
 # extracted from [https://goo.gl/vCTYdK](https://goo.gl/vCTYdK)

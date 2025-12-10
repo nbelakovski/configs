@@ -1,4 +1,7 @@
 echo "Loading .shell_settings..."
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 
 add_to_path() {
@@ -15,8 +18,6 @@ add_to_path ~/bin
 
 [ "$(command -v eza)" != "" ] && alias ls="eza"
 
-export JAVA_HOME=/Library/Java/JavaVirtualMachines/openjdk20/Contents/Home
-
 
 # Tell history to ignore duplicates
 case $SHELL in
@@ -26,7 +27,7 @@ case $SHELL in
     ;;
   *"bash")
     export HISTCONTROL=ignoredups 
-    PS1="\u@\h \W \$ "
+    PS1="\w \$ "
     bind "set completion-ignore-case on"
     [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
     # Put other completions in ~/.local/share/bash-completion/completions

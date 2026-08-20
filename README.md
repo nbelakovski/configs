@@ -25,11 +25,11 @@ vim +'PlugInstall --sync' +qa
 cp .profile ~/
 ```
 
-For macOS iterm these are the instructions to make option+left or option+right to move a word
-iterm->settings->profiles->keys->key mappings -> remove the things associated with option+left/right
-iterm->settings->keys->key bindings -> add two key bindings to send escape sequences. left should send b, right sends f
 
-Also for VSCode you'll want to add this to "Keyboard Shortcuts JSON" to have normal ctrl+tab behavior
+For macOS iterm, option+left and option_right will start working once you restart the shell in bash 
+
+
+For VSCode you'll want to add this to "Keyboard Shortcuts JSON" to have normal ctrl+tab behavior
 ```
 {
     "key": "ctrl+tab",
